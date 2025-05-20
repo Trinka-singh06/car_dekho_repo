@@ -1,0 +1,1268 @@
+{
+	"info": {
+		"_postman_id": "ac167640-ceda-4e7a-a0bf-d8680b2e559e",
+		"name": "Car_dekho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33254770"
+	},
+	"item": [
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"PMV\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pach",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/category/15",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"15"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Make",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/make",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"make"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/make/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"make",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/make/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"make",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Model",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"name\": \"Tata Curvv EV\",\r\n    \"price\": \"1400000.00-1600000.00\",\r\n    \"engine\": \"\",\r\n    \"power\": \"134bhp\",\r\n    \"transmission\": \"Automatic\",\r\n    \"torgue\": \"200Nm\",\r\n    \"body_type\": \"SUV\",\r\n    \"seating_capacity\": 5,\r\n    \"launch_status\": \"Newly Launch\",\r\n    \"year\":2025,\r\n    \"images\": \"\",\r\n    \"mileage\": \"\",\r\n    \"fueltype\": \"Electric\",\r\n    \"makeId\": 6\r\n        \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/model",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Mahindra BE 6 variants",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "18900000.00-2690000.00",
+									"type": "text"
+								},
+								{
+									"key": "engine",
+									"value": "2487cc",
+									"type": "text"
+								},
+								{
+									"key": "power",
+									"value": "282bhp",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "torgue",
+									"value": "380Nm",
+									"type": "text"
+								},
+								{
+									"key": "body_type",
+									"value": "SUV",
+									"type": "text"
+								},
+								{
+									"key": "seating_capacity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2025",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/eMsys/Pictures/Saved Pictures/Mahindra BE6.avif"
+								},
+								{
+									"key": "fueltype",
+									"value": "Electric",
+									"type": "text"
+								},
+								{
+									"key": "makeId",
+									"value": "6",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/model/fuel/Electric",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model",
+								"fuel",
+								"Electric"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "modelId",
+									"value": "1",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Alto 800 tour",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/eMsys/Pictures/Saved Pictures/Alto.avif"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/model/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Variant",
+			"item": [
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Alto 800 tour H1 (O)",
+									"type": "text"
+								},
+								{
+									"key": "engine",
+									"value": "796 cc",
+									"type": "text"
+								},
+								{
+									"key": "power",
+									"value": "47.33 bhp",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Manual",
+									"type": "text"
+								},
+								{
+									"key": "torgue",
+									"value": "69 Nm",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "420000",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/eMsys/Pictures/Saved Pictures/altoH1.avif"
+								},
+								{
+									"key": "mileage",
+									"value": "22.05 kmpl",
+									"type": "text"
+								},
+								{
+									"key": "fueltype",
+									"value": "Petrol",
+									"type": "text"
+								},
+								{
+									"key": "modelId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/variant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getby_min_max",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant/price-filter?min=400000&max=900000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant",
+								"price-filter"
+							],
+							"query": [
+								{
+									"key": "min",
+									"value": "400000"
+								},
+								{
+									"key": "max",
+									"value": "900000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get/make",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant/make/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant",
+								"make",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patch",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/variant/1/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"variant",
+								"1",
+								"image"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n    \"name\":\"VIDEOS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/menu-heading",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"menu-heading"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Card",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/new/budget",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"new",
+								"budget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetModels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/new/model",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"new",
+								"model"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UsedBudget",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/used/budget",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"used",
+								"budget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UsedModels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/used/budget",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"used",
+								"budget"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Budget-Ranges",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/budget-ranges",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"budget-ranges"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/brands",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetModelById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/car/models/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car",
+								"models",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Used Car",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "BMW",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "2022 BMW X4 M Sport X xDrive30d",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50.50 Lakh",
+									"type": "text"
+								},
+								{
+									"key": "carNumber",
+									"value": "MH12AB1234",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "postman-cloud:///1f020418-04fe-4c90-ab02-91a035fa82c8"
+								},
+								{
+									"key": "lenght",
+									"value": "4.6m",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Maharashtra",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "Pune",
+									"type": "text"
+								},
+								{
+									"key": "fuelType",
+									"value": "Diesel",
+									"type": "text"
+								},
+								{
+									"key": "registrationYear",
+									"value": "Jan 2022",
+									"type": "text"
+								},
+								{
+									"key": "insurance",
+									"value": "Comprehensive",
+									"type": "text"
+								},
+								{
+									"key": "seats",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "kmsDriven",
+									"value": "20,000 Kms",
+									"type": "text"
+								},
+								{
+									"key": "Rto",
+									"value": "Pune",
+									"type": "text"
+								},
+								{
+									"key": "ownership",
+									"value": "Second Owner",
+									"type": "text"
+								},
+								{
+									"key": "engine",
+									"value": "2993 cc",
+									"type": "text"
+								},
+								{
+									"key": "mileage",
+									"value": "235 kmph",
+									"type": "text"
+								},
+								{
+									"key": "power",
+									"value": "261.50 bhp",
+									"type": "text"
+								},
+								{
+									"key": "numberofAirbags",
+									"value": "6",
+									"type": "text"
+								},
+								{
+									"key": "engineDisplacement",
+									"value": "2993 cc",
+									"type": "text"
+								},
+								{
+									"key": "transmission",
+									"value": "Automatic",
+									"type": "text"
+								},
+								{
+									"key": "yearofManufacture",
+									"value": "2022",
+									"type": "text"
+								},
+								{
+									"key": "categoryId",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "sellerId",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/used-car-details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n  \"name\": \"ABC Dealers\",\r\n  \"mobile\": \"9087654321\",\r\n  \"contactAdderess\": \"1234 Auto Lane, mumbai\",\r\n  \"email\": \"abc@sellcars.com\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"seller"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Car_Sell_Request",
+			"item": [
+				{
+					"name": "Post",
+					"request": {
+						"auth": {
+							"type": "bearer"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"carName\": \"Honda City\",\r\n  \"carModel\": \"ZX\",\r\n  \"carYear\": \"2018\",\r\n  \"fuelType\": \"Petrol\",\r\n  \"kmsDriven\": 45000,\r\n  \"contactNumber\": \"9876543210\",\r\n  \"preferredInspectionDate\": \"2025-05-10\",\r\n  \"additionalNotes\": \"Car is in excellent condition with all service records\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/car-sell-requests",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"car-sell-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "body_type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/model/filter/by-body-type?bodyType=SUV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model",
+								"filter",
+								"by-body-type"
+							],
+							"query": [
+								{
+									"key": "bodyType",
+									"value": "SUV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "price & body_type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/model/filter/by-price-and-body?minPrice=500000&maxPrice=1500000&bodyType=SUV",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model",
+								"filter",
+								"by-price-and-body"
+							],
+							"query": [
+								{
+									"key": "minPrice",
+									"value": "500000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1500000"
+								},
+								{
+									"key": "bodyType",
+									"value": "SUV"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "model by make",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/model/filter/by-make?makeId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"model",
+								"filter",
+								"by-make"
+							],
+							"query": [
+								{
+									"key": "makeId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "used_car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "used_car_by_price_range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/filter/by-price-range?minPrice=300000&maxPrice=800000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"filter",
+								"by-price-range"
+							],
+							"query": [
+								{
+									"key": "minPrice",
+									"value": "300000"
+								},
+								{
+									"key": "maxPrice",
+									"value": "800000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "used_car_by_model",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/filter/by-model?modelName=BMW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"filter",
+								"by-model"
+							],
+							"query": [
+								{
+									"key": "modelName",
+									"value": "BMW"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uesd_car_by_model_city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/filter/by-model-and-city?modelName=BMW&city=Pune",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"filter",
+								"by-model-and-city"
+							],
+							"query": [
+								{
+									"key": "modelName",
+									"value": "BMW"
+								},
+								{
+									"key": "city",
+									"value": "Pune"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "used_car_by_city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/filter/by-city/Pune",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"filter",
+								"by-city",
+								"Pune"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "used_car_by_body_type",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/used-car-details/filter/by-body-type?bodyType=Sedan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"used-car-details",
+								"filter",
+								"by-body-type"
+							],
+							"query": [
+								{
+									"key": "bodyType",
+									"value": "Sedan"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_make",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/make",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"make"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_make_by_id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/make/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"make",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search-Filter/PRICE-RANGE",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
