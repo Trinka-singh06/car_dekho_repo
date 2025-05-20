@@ -1,0 +1,222 @@
+<!-- <div class="navbar">
+  <div class="logo" (click)="goToHome()">
+    <img src="assets/cardekho-logo.jpeg" alt="CarDekho" style="cursor: pointer;">
+  </div>
+  
+  <div class="search-bar">
+    <input type="text" placeholder="Search or Ask a Question">
+    <button><i class="fa fa-search"></i></button>
+  </div>
+  <div class="nav-links">
+    <ejs-menu [items]="menuItems" (select)="onModelSelect($event.item?.action)"></ejs-menu>
+  </div>
+  <div class="user-actions">
+    <button class="login-btn">Login / Register</button>
+  </div>
+</div>
+
+<div class="variants-container" *ngIf="selectedModel">
+  <h3>Variants for {{ selectedModel }}</h3>
+  <div class="variants-list">
+    <div *ngFor="let variant of carVariantsData[selectedModel]" class="e-card">
+      <div class="e-card-image">
+        <img [src]="variant.image" alt="{{ variant.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ variant.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="category-cars-container" *ngIf="selectedCategory">
+  <h3>Cars in {{ selectedCategory }}</h3>
+  <div class="category-cars-list">
+    <div *ngFor="let car of categoryCarsData[selectedCategory]" class="e-card">
+      <div class="e-card-image">
+        <img [src]="car.image" alt="{{ car.name }}">
+
+      </div>
+      <div class="e-card-content">
+        <h3>{{ car.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+<div class="navbar">
+  <div class="logo" (click)="goToHome()">
+    <img src="assets/cardekho-logo.jpeg" alt="CarDekho" style="cursor: pointer;">
+  </div>
+
+  <div class="nav-links">
+    <ejs-menu [items]="menuItems" (select)="onModelSelect($event.item?.action)"></ejs-menu>
+  </div>
+
+
+  <div class="search-bar">
+    <div class="search-input-container">
+      <input type="text" placeholder="Search cars by model name..." [(ngModel)]="searchQuery" (input)="onSearchInput()"
+        (keyup.enter)="performSearch()">
+
+      <!-- Suggestions dropdown -->
+      <div class="search-suggestions" *ngIf="searchSuggestions.length > 0">
+        <div *ngFor="let suggestion of searchSuggestions" class="suggestion-item"
+          (click)="selectSuggestion(suggestion)">
+          <span>{{ suggestion.name }}</span>
+          <span class="suggestion-type">{{ suggestion.type }}</span>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="performSearch()">
+      <i class="fa fa-search"></i> Search
+    </button>
+  </div>
+
+
+  <div class="user-section">
+    <div *ngIf="!isLoggedIn">
+      <button ejs-button Class="login-btn" (click)="openLoginModal()">Login / Register</button>
+    </div>
+
+    <div *ngIf="isLoggedIn" class="user-greeting">
+      <!-- Hello, {{userName}} -->
+      <app-user-menu></app-user-menu>
+    </div>
+  </div>
+
+  <app-login-register *ngIf="showLoginModal" (closeModalEvent)="closeLoginModal()"
+    (loginSuccess)="onLoginSuccess()"></app-login-register>
+</div>
+
+<!-- <div class="variants-container" *ngIf="selectedModel">
+  <h3>Variants for {{ selectedModel }}</h3>
+  <div class="variants-list">
+    <div *ngFor="let variant of carVariantsData[selectedModel]" class="e-card">
+      <div class="e-card-image">
+        <img [src]="variant.image" alt="{{ variant.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ variant.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="category-cars-container" *ngIf="selectedCategory && !showExplorer">
+  <h3>Cars in {{ selectedCategory }}</h3>
+  <div class="category-cars-list">
+    <div *ngFor="let car of categoryCarsData[selectedCategory]" class="e-card">
+      <div class="e-card-image">
+        <img [src]="car.image" alt="{{ car.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ car.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- Model Details Container -->
+<div class="model-container" *ngIf="selectedModel && !showVariants">
+  <h3>{{ selectedModel }} Details</h3>
+  <div class="model-details">
+    <div class="model-info-card e-card">
+      <div class="e-card-image">
+        <img [src]="modelImage" alt="{{ selectedModel }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ selectedModel }}</h3>
+        <div class="model-specs">
+          <div class="spec-item">
+            <span class="spec-label">Price:</span>
+            <span class="spec-value">{{ modelPrice }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Engine:</span>
+            <span class="spec-value">{{ modelEngine }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Power:</span>
+            <span class="spec-value">{{ modelPower }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Transmission:</span>
+            <span class="spec-value">{{ modelTransmission }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Torque:</span>
+            <span class="spec-value">{{ modelTorque }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Mileage:</span>
+            <span class="spec-value">{{ modelMileage }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Fuel Type:</span>
+            <span class="spec-value">{{ modelFuelType }}</span>
+          </div>
+        </div>
+        <button ejs-button class="show-variants-btn" (click)="toggleVariants()">Show Variants</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Variants Container -->
+<div class="variants-container" *ngIf="selectedModel && showVariants">
+  <div class="variants-header">
+    <h3>Variants for {{ selectedModel }}</h3>
+    <button ejs-button class="back-to-model-btn" (click)="toggleVariants()">Back to Model Details</button>
+  </div>
+  <div class="variants-list">
+    <div *ngFor="let variant of carVariantsData[selectedModel]" class="e-card">
+      <div class="e-card-image">
+        <img [src]="variant.image" alt="{{ variant.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ variant.name }}</h3>
+        <div class="variant-specs">
+          <div class="spec-item">
+            <span class="spec-label">Price:</span>
+            <span class="spec-value">₹{{ variant.price }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Engine:</span>
+            <span class="spec-value">{{ variant.engine }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Power:</span>
+            <span class="spec-value">{{ variant.power }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Transmission:</span>
+            <span class="spec-value">{{ variant.transmission }}</span>
+          </div>
+          <div class="spec-item">
+            <span class="spec-label">Mileage:</span>
+            <span class="spec-value">{{ variant.mileage }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="category-cars-container" *ngIf="selectedCategory && !showExplorer">
+  <h3>Cars in {{ selectedCategory }}</h3>
+  <div class="category-cars-list">
+    <div *ngFor="let car of categoryCarsData[selectedCategory]" class="e-card" (click)="onModelSelect(car.name)">
+      <div class="e-card-image">
+        <img [src]="car.image" alt="{{ car.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ car.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

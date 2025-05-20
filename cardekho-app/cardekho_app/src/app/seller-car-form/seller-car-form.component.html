@@ -1,0 +1,445 @@
+
+ <div class="sell-car-container">
+  <div class="form-header">
+    <h2>Sell Your Car</h2>
+    <div class="steps-indicator">
+      <div [class.active]="currentStep === 1" class="step">1. Seller Details</div>
+      <div [class.active]="currentStep === 2" class="step">2. Car Details</div>
+    </div>
+  </div>
+
+  <div id="toastContainer"></div>
+
+  <!-- Step 1: Seller Details Form -->
+  <div *ngIf="currentStep === 1" class="form-section">
+    <div class="card">
+      <div class="card-header">
+        <h3>Seller Information</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="sellerForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Full Name <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="name" 
+                formControlName="name" 
+                placeholder="Enter your full name"
+              />
+              <div *ngIf="sellerForm.get('name')?.invalid && sellerForm.get('name')?.touched" class="error-message">
+                <div *ngIf="sellerForm.get('name')?.errors?.['required']">Name is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="mobile">Mobile Number <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="mobile" 
+                formControlName="mobile" 
+                placeholder="10-digit mobile number"
+              />
+              <div *ngIf="sellerForm.get('mobile')?.invalid && sellerForm.get('mobile')?.touched" class="error-message">
+                <div *ngIf="sellerForm.get('mobile')?.errors?.['required']">Mobile number is required</div>
+                <div *ngIf="sellerForm.get('mobile')?.errors?.['pattern']">Enter a valid 10-digit mobile number</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="email">Email <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="email" 
+                formControlName="email" 
+                placeholder="Enter your email"
+              />
+              <div *ngIf="sellerForm.get('email')?.invalid && sellerForm.get('email')?.touched" class="error-message">
+                <div *ngIf="sellerForm.get('email')?.errors?.['required']">Email is required</div>
+                <div *ngIf="sellerForm.get('email')?.errors?.['email']">Enter a valid email address</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="contactAdderess">Contact Address <span class="required">*</span></label>
+              <textarea 
+                ejs-textbox 
+                id="contactAdderess" 
+                formControlName="contactAdderess" 
+                placeholder="Enter your address"
+              ></textarea>
+              <div *ngIf="sellerForm.get('contactAdderess')?.invalid && sellerForm.get('contactAdderess')?.touched" class="error-message">
+                <div *ngIf="sellerForm.get('contactAdderess')?.errors?.['required']">Address is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="next_button" (click)="nextStep()">Next: Car Details</button>
+            <button type="button" (click)="resetForms()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Car Details Form -->
+  <div *ngIf="currentStep === 2" class="form-section">
+    <div class="card">
+      <div class="card-header">
+        <h3>Car Details</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="carForm">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Car Make & Model <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="name" 
+                formControlName="name" 
+                placeholder="E.g., Honda City"
+              />
+              <div *ngIf="carForm.get('name')?.invalid && carForm.get('name')?.touched" class="error-message">
+                <div *ngIf="carForm.get('name')?.errors?.['required']">Car make and model is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="title">Car Title <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="title" 
+                formControlName="title" 
+                placeholder="E.g., 2020 Honda City VX CVT"
+              />
+              <div *ngIf="carForm.get('title')?.invalid && carForm.get('title')?.touched" class="error-message">
+                <div *ngIf="carForm.get('title')?.errors?.['required']">Car title is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="body_type">Body Type <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="body_type" 
+                formControlName="body_type"
+                [dataSource]="bodyTypes"
+                placeholder="Select Body Type"
+                [cssClass]="carForm.get('body_type')?.invalid && carForm.get('body_type')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('body_type')?.invalid && carForm.get('body_type')?.touched" class="error-message">
+                <div *ngIf="carForm.get('body_type')?.errors?.['required']">Body type is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="categoryId">Category <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="categoryId" 
+                formControlName="categoryId" 
+                placeholder="E.g., Sedan, SUV, Hatchback"
+              />
+              <div *ngIf="carForm.get('categoryId')?.invalid && carForm.get('categoryId')?.touched" class="error-message">
+                <div *ngIf="carForm.get('categoryId')?.errors?.['required']">Category is required</div>
+              </div>
+            </div>            
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="carNumber">Car Registration Number <span class="required">*</span></label>
+              <input 
+                ejs-textbox 
+                id="carNumber" 
+                formControlName="carNumber" 
+                placeholder="E.g., MH01AB1234"
+              />
+              <div *ngIf="carForm.get('carNumber')?.invalid && carForm.get('carNumber')?.touched" class="error-message">
+                <div *ngIf="carForm.get('carNumber')?.errors?.['required']">Car number is required</div>
+                <div *ngIf="carForm.get('carNumber')?.errors?.['pattern']">Enter a valid car registration number</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="price">Price (₹) <span class="required">*</span></label>
+              <input 
+                ejs-numerictextbox 
+                id="price" 
+                formControlName="price" 
+                placeholder="Enter asking price"
+                format="n0"
+              />
+              <div *ngIf="carForm.get('price')?.invalid && carForm.get('price')?.touched" class="error-message">
+                <div *ngIf="carForm.get('price')?.errors?.['required']">Price is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="state">State <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="state" 
+                formControlName="state"
+                [dataSource]="states"
+                placeholder="Select State"
+                (change)="onStateChange($event)"
+                [cssClass]="carForm.get('state')?.invalid && carForm.get('state')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('state')?.invalid && carForm.get('state')?.touched" class="error-message">
+                <div *ngIf="carForm.get('state')?.errors?.['required']">State is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="city">City <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="city" 
+                formControlName="city"
+                [dataSource]="selectedCities"
+                placeholder="Select City"
+                [enabled]="selectedCities.length > 0"
+                [cssClass]="carForm.get('city')?.invalid && carForm.get('city')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('city')?.invalid && carForm.get('city')?.touched" class="error-message">
+                <div *ngIf="carForm.get('city')?.errors?.['required']">City is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="fuelType">Fuel Type <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="fuelType" 
+                formControlName="fuelType"
+                [dataSource]="fuelTypes"
+                placeholder="Select Fuel Type"
+                [cssClass]="carForm.get('fuelType')?.invalid && carForm.get('fuelType')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('fuelType')?.invalid && carForm.get('fuelType')?.touched" class="error-message">
+                <div *ngIf="carForm.get('fuelType')?.errors?.['required']">Fuel type is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="transmission">Transmission <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="transmission" 
+                formControlName="transmission"
+                [dataSource]="transmissionTypes"
+                placeholder="Select Transmission"
+                [cssClass]="carForm.get('transmission')?.invalid && carForm.get('transmission')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('transmission')?.invalid && carForm.get('transmission')?.touched" class="error-message">
+                <div *ngIf="carForm.get('transmission')?.errors?.['required']">Transmission is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="yearofManufacture">Year of Manufacture <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="yearofManufacture" 
+                formControlName="yearofManufacture"
+                [dataSource]="years"
+                placeholder="Select Year"
+                [cssClass]="carForm.get('yearofManufacture')?.invalid && carForm.get('yearofManufacture')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('yearofManufacture')?.invalid && carForm.get('yearofManufacture')?.touched" class="error-message">
+                <div *ngIf="carForm.get('yearofManufacture')?.errors?.['required']">Manufacture year is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="registrationYear">Registration Year <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="registrationYear" 
+                formControlName="registrationYear"
+                [dataSource]="years"
+                placeholder="Select Year"
+                [cssClass]="carForm.get('registrationYear')?.invalid && carForm.get('registrationYear')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('registrationYear')?.invalid && carForm.get('registrationYear')?.touched" class="error-message">
+                <div *ngIf="carForm.get('registrationYear')?.errors?.['required']">Registration year is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="ownership">Ownership <span class="required">*</span></label>
+              <ejs-dropdownlist 
+                id="ownership" 
+                formControlName="ownership"
+                [dataSource]="ownershipOptions"
+                placeholder="Select Ownership"
+                [cssClass]="carForm.get('ownership')?.invalid && carForm.get('ownership')?.touched ? 'e-error' : ''"
+              ></ejs-dropdownlist>
+              <div *ngIf="carForm.get('ownership')?.invalid && carForm.get('ownership')?.touched" class="error-message">
+                <div *ngIf="carForm.get('ownership')?.errors?.['required']">Ownership is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="kmsDriven">Kilometers Driven <span class="required">*</span></label>
+              <input 
+                ejs-numerictextbox 
+                id="kmsDriven" 
+                formControlName="kmsDriven" 
+                placeholder="E.g., 25000"
+                format="n0"
+              />
+              <div *ngIf="carForm.get('kmsDriven')?.invalid && carForm.get('kmsDriven')?.touched" class="error-message">
+                <div *ngIf="carForm.get('kmsDriven')?.errors?.['required']">Kilometers driven is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="insurance">Insurance Type</label>
+              <ejs-dropdownlist 
+                id="insurance" 
+                formControlName="insurance"
+                [dataSource]="insuranceOptions"
+                placeholder="Select Insurance Type"
+              ></ejs-dropdownlist>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="mileage">Mileage (km/l) <span class="required">*</span></label>
+              <input 
+                ejs-numerictextbox 
+                id="mileage" 
+                formControlName="mileage" 
+                placeholder="E.g., 15"
+                format="n1"
+              />
+              <div *ngIf="carForm.get('mileage')?.invalid && carForm.get('mileage')?.touched" class="error-message">
+                <div *ngIf="carForm.get('mileage')?.errors?.['required']">Mileage is required</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="seats">Number of Seats <span class="required">*</span></label>
+              <input 
+                ejs-numerictextbox 
+                id="seats" 
+                formControlName="seats" 
+                placeholder="E.g., 5"
+                format="n0"
+              />
+              <div *ngIf="carForm.get('seats')?.invalid && carForm.get('seats')?.touched" class="error-message">
+                <div *ngIf="carForm.get('seats')?.errors?.['required']">Number of seats is required</div>
+                <div *ngIf="carForm.get('seats')?.errors?.['min'] || carForm.get('seats')?.errors?.['max']">Enter a valid number of seats (1-10)</div>
+              </div>
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="numberofAirbags">Number of Airbags</label>
+              <input 
+                ejs-numerictextbox 
+                id="numberofAirbags" 
+                formControlName="numberofAirbags" 
+                placeholder="E.g., 2"
+                format="n0"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="engineDisplacement">Engine Displacement (cc)</label>
+              <input 
+                ejs-numerictextbox 
+                id="engineDisplacement" 
+                formControlName="engineDisplacement" 
+                placeholder="E.g., 1498"
+                format="n0"
+              />
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="power">Power (bhp)</label>
+              <input 
+                ejs-textbox 
+                id="power" 
+                formControlName="power" 
+                placeholder="E.g., 118.4"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="engine">Engine</label>
+              <input 
+                ejs-textbox 
+                id="engine" 
+                formControlName="engine" 
+                placeholder="E.g., 1.5L i-VTEC"
+              />
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="Rto">RTO</label>
+              <input 
+                ejs-textbox 
+                id="Rto" 
+                formControlName="Rto" 
+                placeholder="E.g., MH01"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="lenght">Length (mm)</label>
+              <input 
+                ejs-numerictextbox 
+                id="lenght" 
+                formControlName="lenght" 
+                placeholder="E.g., 4440"
+                format="n0"
+              />
+            </div>
+            
+            <div class="form-group col-md-6">
+              <label for="image">Car Images</label>
+              <div class="custom-file-upload">
+                <input 
+                  type="file" 
+                  id="image" 
+                  (change)="onFileSelected($event)"
+                  accept="image/*"
+                  multiple
+                />
+                <label for="image" class="custom-file-label">
+                  {{ selectedFileName || 'Choose files' }}
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="back_seller" (click)="prevStep()">Back to Seller Details</button>
+            <button [disabled]="isSubmitting" (click)="onSubmit()">
+              <span *ngIf="isSubmitting">Submitting...</span>
+              <span *ngIf="!isSubmitting">Submit</span>
+            </button>
+            <button ejs-button cssClass="e-warning" type="button" (click)="resetForms()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

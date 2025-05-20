@@ -1,0 +1,128 @@
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.e-card {
+  height: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 380px;
+  font-family: Arial, sans-serif;
+}
+
+
+.e-card-header h3 {
+  font-size: 30px;
+  margin-right: 50px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 18px;
+  margin-bottom: 20px;
+  border: none;
+  background: #E5E5E5;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.tabs button.active {
+  background: black;
+  color: white;
+}
+
+.tabs button:hover {
+  background: #ddd;
+}
+
+
+.e-card-content div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.e-card-content label {
+  font-size: 16px;
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.e-card-content select {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background: white;
+  cursor: pointer;
+}
+
+
+.e-card-actions button {
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  background: #FF5722;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.e-card-actions button:hover {
+  background: #E64A19;
+}
+
+
+/* ........................ */
+
+.car-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.car-card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.car-card-header h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+.car-card-body p {
+  margin: 4px 0;
+}

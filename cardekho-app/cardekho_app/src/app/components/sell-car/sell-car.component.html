@@ -1,0 +1,198 @@
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="mb-0">Sell Your Car</h3>
+          </div>
+          <div class="card-body">
+            <!-- Progress indicator -->
+            <div class="progress mb-4">
+              <div 
+                class="progress-bar" 
+                role="progressbar" 
+                [style.width]="(currentStep / totalSteps * 100) + '%'" 
+                [attr.aria-valuenow]="currentStep" 
+                aria-valuemin="0" 
+                aria-valuemax="3">
+                Step {{currentStep}} of {{totalSteps}}
+              </div>
+            </div>
+  
+            <!-- Error message -->
+            <div *ngIf="errorMessage" class="alert alert-danger">
+              {{errorMessage}}
+            </div>
+  
+            <form [formGroup]="sellCarForm" (ngSubmit)="onSubmit()">
+              <!-- Step 1: Basic Car Details -->
+              <div *ngIf="currentStep === 1">
+                <h4 class="mb-3">Basic Car Details</h4>
+                
+                <div class="mb-3">
+                  <label for="carMake" class="form-label">Car Make</label>
+                  <input 
+                    type="text" 
+                    id="carMake" 
+                    formControlName="carMake" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('carMake')?.touched && sellCarForm.get('carMake')?.invalid}">
+                  <div *ngIf="sellCarForm.get('carMake')?.touched && sellCarForm.get('carMake')?.invalid" class="invalid-feedback">
+                    Car make is required
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="carModel" class="form-label">Car Model</label>
+                  <input 
+                    type="text" 
+                    id="carModel" 
+                    formControlName="carModel" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('carModel')?.touched && sellCarForm.get('carModel')?.invalid}">
+                  <div *ngIf="sellCarForm.get('carModel')?.touched && sellCarForm.get('carModel')?.invalid" class="invalid-feedback">
+                    Car model is required
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="registrationYear" class="form-label">Registration Year</label>
+                  <ejs-dropdownlist 
+                    id="registrationYear" 
+                    formControlName="registrationYear" 
+                    [dataSource]="years" 
+                    placeholder="Select Year" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('registrationYear')?.touched && sellCarForm.get('registrationYear')?.invalid}">
+                  </ejs-dropdownlist>
+                  <div *ngIf="sellCarForm.get('registrationYear')?.touched && sellCarForm.get('registrationYear')?.invalid" class="text-danger mt-1">
+                    Registration year is required
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Step 2: Additional Car Details -->
+              <div *ngIf="currentStep === 2">
+                <h4 class="mb-3">Additional Car Details</h4>
+                
+                <div class="mb-3">
+                  <label for="kmsDriven" class="form-label">Kilometers Driven</label>
+                  <input 
+                    type="number" 
+                    id="kmsDriven" 
+                    formControlName="kmsDriven" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('kmsDriven')?.touched && sellCarForm.get('kmsDriven')?.invalid}">
+                  <div *ngIf="sellCarForm.get('kmsDriven')?.touched && sellCarForm.get('kmsDriven')?.invalid" class="invalid-feedback">
+                    Valid kilometers driven is required
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="fuelType" class="form-label">Fuel Type</label>
+                  <ejs-dropdownlist 
+                    id="fuelType" 
+                    formControlName="fuelType" 
+                    [dataSource]="['Petrol', 'Diesel', 'CNG', 'Electric', 'Hybrid']" 
+                    placeholder="Select Fuel Type" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('fuelType')?.touched && sellCarForm.get('fuelType')?.invalid}">
+                  </ejs-dropdownlist>
+                  <div *ngIf="sellCarForm.get('fuelType')?.touched && sellCarForm.get('fuelType')?.invalid" class="text-danger mt-1">
+                    Fuel type is required
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="transmission" class="form-label">Transmission</label>
+                  <ejs-dropdownlist 
+                    id="transmission" 
+                    formControlName="transmission" 
+                    [dataSource]="['Manual', 'Automatic', 'AMT', 'CVT']" 
+                    placeholder="Select Transmission" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('transmission')?.touched && sellCarForm.get('transmission')?.invalid}">
+                  </ejs-dropdownlist>
+                  <div *ngIf="sellCarForm.get('transmission')?.touched && sellCarForm.get('transmission')?.invalid" class="text-danger mt-1">
+                    Transmission is required
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Step 3: Contact Details -->
+              <div *ngIf="currentStep === 3">
+                <h4 class="mb-3">Contact Details</h4>
+                
+                <div class="mb-3">
+                  <label for="ownerName" class="form-label">Owner Name</label>
+                  <input 
+                    type="text" 
+                    id="ownerName" 
+                    formControlName="ownerName" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('ownerName')?.touched && sellCarForm.get('ownerName')?.invalid}">
+                  <div *ngIf="sellCarForm.get('ownerName')?.touched && sellCarForm.get('ownerName')?.invalid" class="invalid-feedback">
+                    Owner name is required
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="contactNumber" class="form-label">Contact Number</label>
+                  <input 
+                    type="text" 
+                    id="contactNumber" 
+                    formControlName="contactNumber" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('contactNumber')?.touched && sellCarForm.get('contactNumber')?.invalid}">
+                  <div *ngIf="sellCarForm.get('contactNumber')?.touched && sellCarForm.get('contactNumber')?.errors?.['required']" class="invalid-feedback">
+                    Contact number is required
+                  </div>
+                  <div *ngIf="sellCarForm.get('contactNumber')?.touched && sellCarForm.get('contactNumber')?.errors?.['pattern']" class="invalid-feedback">
+                    Please enter a valid 10-digit contact number
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="city" class="form-label">City</label>
+                  <input 
+                    type="text" 
+                    id="city" 
+                    formControlName="city" 
+                    class="form-control" 
+                    [ngClass]="{'is-invalid': sellCarForm.get('city')?.touched && sellCarForm.get('city')?.invalid}">
+                  <div *ngIf="sellCarForm.get('city')?.touched && sellCarForm.get('city')?.invalid" class="invalid-feedback">
+                    City is required
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Navigation buttons -->
+              <div class="d-flex justify-content-between mt-4">
+                <button 
+                  type="button" 
+                  class="btn btn-secondary" 
+                  (click)="previousStep()" 
+                  *ngIf="currentStep > 1">
+                  Previous
+                </button>
+                <div class="ms-auto">
+                  <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    (click)="nextStep()" 
+                    *ngIf="currentStep < totalSteps">
+                    Next
+                  </button>
+                  <button 
+                    type="submit" 
+                    class="btn btn-success" 
+                    *ngIf="currentStep === totalSteps"
+                    [disabled]="isSubmitting">
+                    <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+                    Submit Request
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

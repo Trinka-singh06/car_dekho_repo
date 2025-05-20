@@ -1,0 +1,23 @@
+<!-- <div class="slider-container">
+    <ejs-carousel>
+      <e-carousel-items>
+        <e-carousel-item>
+          <img src="assets/car1.avif" class="img-fluid">
+          <div class="overlay">
+            <h3>Tata Harrier EV</h3>
+            <p>Showcased: AWD, tech-laden, and more</p>
+          </div>
+        </e-carousel-item>
+      </e-carousel-items>
+    </ejs-carousel>
+  </div> -->
+  
+
+   <div class="slider">
+    <div *ngFor="let car of carImages">
+      <img [src]="car.imgSrc" alt="Car">
+      <h2>{{ car.title }}</h2>
+      <p>{{ car.desc }}</p>
+    </div>
+  </div>
+ 

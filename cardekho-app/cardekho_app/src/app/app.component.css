@@ -1,0 +1,25 @@
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px; /* space between items */
+  }
+  
+  .menu li {
+    display: inline-block;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .menu a:hover {
+    background-color: #f0f0f0;
+  }
+  

@@ -1,0 +1,124 @@
+<div class="container mt-4">
+  <div class="row mb-3">
+    <div class="col">
+      <button class="btn btn-outline-secondary" (click)="goBack()">
+        <i class="fa fa-arrow-left"></i> Back to Requests
+      </button>
+    </div>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="loading" class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Request details -->
+  <div *ngIf="!loading && request" class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h3 class="mb-0">Request #{{request.requestId}}</h3>
+      <span [ngClass]="getStatusClass(request.status)">{{request.status}}</span>
+    </div>
+
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="card-title">Request Information</h4>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">Request Date:</th>
+                <td>{{formatDate(request.requestDate)}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Status:</th>
+                <td><span [ngClass]="getStatusClass(request.status)">{{request.status}}</span></td>
+              </tr>
+              <tr>
+                <th scope="row">Comments:</th>
+                <td>{{request.comments || 'No comments yet'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-6">
+          <h4 class="card-title">Valuation Details</h4>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">Inspection Date:</th>
+                <td>{{request.inspectionDate ? formatDate(request.inspectionDate) : 'Not scheduled yet'}}</td>
+              </tr>
+              <tr>
+                <th scope="row">Valuation Amount:</th>
+                <td>{{request.valuationAmount ? '₹' + request.valuationAmount.toLocaleString() : 'Pending valuation'}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Car details section if available -->
+      <div *ngIf="request.carDetail" class="mt-4 border-top pt-3">
+        <h4>Car Details</h4>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <th scope="row">Name:</th>
+                  <td>{{request.carDetail.name}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Car Number:</th>
+                  <td>{{request.carDetail.carNumber}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Registration Year:</th>
+                  <td>{{request.carDetail.registrationYear}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">KMs Driven:</th>
+                  <td>{{request.carDetail.kmsDriven}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fuel Type:</th>
+                  <td>{{request.carDetail.fuelType}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6">
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <th scope="row">Ownership:</th>
+                  <td>{{request.carDetail.ownership}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Insurance:</th>
+                  <td>{{request.carDetail.insurance}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Transmission:</th>
+                  <td>{{request.carDetail.transmission}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Year of Manufacture:</th>
+                  <td>{{request.carDetail.yearofManufacture}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Price:</th>
+                  <td>₹{{request.carDetail.price}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>

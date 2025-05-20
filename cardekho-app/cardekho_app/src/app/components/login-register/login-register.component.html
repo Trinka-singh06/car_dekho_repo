@@ -1,0 +1,55 @@
+<!-- login.component.html -->
+<div class="login-modal">
+  <div class="login-container">
+    <div class="login-image-container">
+      <img src="assets/login-img.jpg" alt="Login illustration">
+    </div>
+    <div class="login-form-container">
+      <div class="close-button">
+        <button ejs-button cssClass="e-flat" (click)="closeModal()">✕</button>
+      </div>
+
+      <h2 class="login-title">Login or Register</h2>
+      <p class="login-subtitle">for Better Experience, Order tracking & Regular updates</p>
+
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <div class="phone-input-container">
+          <div class="country-code">+91 -</div>
+          <input type="text" ejs-textbox [(ngModel)]="mobileNumber" placeholder="Enter your mobile number">
+        </div>
+      </div>
+      <!-- Add username field before OTP is sent -->
+      <div *ngIf="!otpSent" class="form-group">
+        <label>Enter your Name</label>
+        <input type="text" ejs-textbox [(ngModel)]="userName" placeholder="Enter your name">
+      </div>
+
+      <div *ngIf="otpSent" class="form-group">
+        <label>Enter OTP</label>
+        <input type="text" ejs-textbox [(ngModel)]="otp" placeholder="Enter OTP">
+      </div>
+
+      <div *ngIf="!otpSent">
+        <button ejs-button cssClass="e-primary" (click)="sendOTP()">Send OTP</button>
+      </div>
+
+      <div *ngIf="otpSent">
+        <button ejs-button cssClass="e-primary" (click)="verifyOTP()">Verify OTP</button>
+      </div>
+
+      <div class="terms-text">
+        <p>By proceeding, I confirm that I have received, read, and agree to:</p>
+        <p>
+          <a href="#">Third-Party Sharing with Dealers and OEMs</a>,
+          <a href="#">Data Sharing for Loan Eligibility</a>,
+          <a href="#">Marketing Communication</a>,
+          <a href="#">Privacy Policy</a>,
+          <a href="#">Terms & Conditions</a>,
+          <a href="#">Consent Declaration</a> and
+          <a href="#">certified CIC</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

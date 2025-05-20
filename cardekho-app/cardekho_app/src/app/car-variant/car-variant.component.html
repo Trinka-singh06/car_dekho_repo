@@ -1,0 +1,14 @@
+<div class="variants-container">
+  <h2>Variants of {{ carModel.replace('-', ' ') }}</h2>
+
+  <div class="variants-grid">
+    <div class="e-card" *ngFor="let variant of variants">
+      <div class="e-card-image">
+        <img [src]="variant.image" alt="{{ variant.name }}">
+      </div>
+      <div class="e-card-content">
+        <h3>{{ variant.name }}</h3>
+      </div>
+    </div>
+  </div>
+</div>

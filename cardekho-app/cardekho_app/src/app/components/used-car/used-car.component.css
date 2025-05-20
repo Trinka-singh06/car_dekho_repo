@@ -1,0 +1,382 @@
+/* .used-car-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .used-car-card {
+    width: 250px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .car-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  
+  .car-info {
+    padding: 12px;
+  }
+  
+  .car-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  
+  .car-details {
+    color: #777;
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  
+  .car-price {
+    font-size: 18px;
+    color: #111;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  
+  .view-seller {
+    color: #ff5d3d;
+    font-weight: 600;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .car-location {
+    color: #555;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  
+  .seller-box {
+    margin-top: 10px;
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+  }
+   */
+
+/* 
+
+   .used-car-container {
+    padding: 2rem;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+
+  .car-seller-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    padding: 1.2rem;
+  }
+  
+
+  .car-details-card {
+    flex: 0 0 420px;
+    max-width: 420px;
+  }
+
+  .seller-details-card {
+    flex: 0 0 400px;
+    max-width: 400px;
+    border-left: 4px solid #007b5e;
+  }
+  
+
+  .car-image-container {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .car-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .car-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .car-specs,
+  .car-location {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .car-price {
+    font-size: 1.1rem;
+    color: #007b5e;
+    font-weight: 600;
+  }
+  
+  .view-button {
+    margin-top: 0.5rem;
+    background-color: #007b5e;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .view-button .arrow {
+    margin-left: 5px;
+  }
+  
+
+  .seller-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .seller-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .seller-detail-item {
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .contact-button {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    width: fit-content;
+  }
+  
+  .whatsapp-icon::before {
+    content: '📞';
+    margin-right: 6px;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .car-seller-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .car-details-card,
+    .seller-details-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+   */
+
+   .used-car-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .car-listing {
+    transition: all 0.3s ease;
+  }
+  
+  .car-listing.expanded {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+  }
+  
+  .car-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .car-details-card {
+    width:max-content;
+    background-color: white;
+  }
+  
+  .car-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .car-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .car-img:hover {
+    transform: scale(1.05);
+  }
+  
+  .car-info {
+    padding: 15px;
+  }
+  
+  .car-title {
+    margin: 0 0 8px 0;
+    font-size: 1.2rem;
+  }
+  
+  .car-specs {
+    color: #666;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+  }
+  
+  .car-price {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+  }
+  
+  .view-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .view-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .car-location {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .full-car-detail-card,
+  .seller-details-card {
+    background-color: #f9f9f9;
+  }
+  
+  .details-title {
+    margin-top: 0;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .seller-header {
+    margin-top: 0;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .seller-details {
+    padding: 15px;
+  }
+  
+  .seller-detail-item {
+    margin-bottom: 10px;
+  }
+  
+  .seller-actions {
+    padding: 0 15px 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .contact-button {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+  }
+  
+  .whatsapp-icon:before {
+    content: ""; /* You would add your WhatsApp icon here */
+  }
+  
+  .back-button-container {
+    padding: 0 15px 15px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .back-button {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #7f8c8d;
+  }

@@ -1,0 +1,74 @@
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col">
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>My Car Sell Requests</h2>
+        <a routerLink="/sell-car" class="btn btn-primary">
+          <i class="fa fa-plus"></i> New Request
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success message -->
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{successMessage}}
+    <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{errorMessage}}
+    <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="loading" class="d-flex justify-content-center my-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- No requests message -->
+  <div *ngIf="!loading && requests.length === 0" class="alert alert-info">
+    <p class="mb-0">You haven't submitted any car sell requests yet.</p>
+    <p class="mb-0">Click the "New Request" button to get started!</p>
+  </div>
+
+  <!-- Requests grid -->
+  <div *ngIf="!loading && requests.length > 0">
+    <ejs-grid [dataSource]="requests" [allowPaging]="true" [pageSettings]="pageSettings" [allowSorting]="true"
+      [sortSettings]="sortSettings">
+      <e-columns>
+        <e-column field="requestId" headerText="ID" width="80" textAlign="Right"></e-column>
+        <e-column field="requestDate" headerText="Request Date" width="120" type="date" format="yMd">
+          <ng-template #template let-data>
+            {{ formatDate(data.requestDate) }}
+          </ng-template>
+        </e-column>
+        <e-column field="status" headerText="Status" width="120">
+          <ng-template #template let-data>
+            <span [ngClass]="getStatusClass(data.status)">{{ data.status }}</span>
+          </ng-template>
+        </e-column>
+        <e-column field="valuationAmount" headerText="Valuation" width="120">
+          <ng-template #template let-data>
+            {{ data.valuationAmount ? '₹' + data.valuationAmount.toLocaleString() : 'Pending' }}
+          </ng-template>
+        </e-column>
+        <e-column field="inspectionDate" headerText="Inspection Date" width="150">
+          <ng-template #template let-data>
+            {{ data.inspectionDate ? formatDate(data.inspectionDate) : 'Not Scheduled' }}
+          </ng-template>
+        </e-column>
+        <e-column headerText="Actions" width="120" textAlign="Center">
+          <ng-template #template let-data>
+            <a [routerLink]="['/request-details', data.requestId]" class="btn btn-sm btn-info">
+              <i class="fa fa-eye"></i> View
+            </a>
+          </ng-template>
+        </e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</div>

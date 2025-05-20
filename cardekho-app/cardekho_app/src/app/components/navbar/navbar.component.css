@@ -1,0 +1,438 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  gap: 20px;
+  /* reduce gap between items */
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  /* flex-grow: 1; */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-section {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #1b4ae6;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.e-menu-wrapper {
+  font-size: 14px;
+}
+
+.e-menu {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.e-menu-item {
+  margin-left: 20px;
+  padding: 10px;
+  gap: 40px;
+  font-weight: bold;
+}
+
+.e-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* Container styling */
+.search-bar {
+  flex: 1;
+  /* Allow search bar to grow */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #f7f7f7;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* max-width: 600px; */
+  max-width: none;
+  /* margin: 20px auto; */
+}
+
+/* Input and suggestions wrapper */
+.search-input-container {
+  flex: 1;
+  position: relative;
+
+}
+
+/* Input styling */
+.search-input-container input[type="text"] {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  /* transition: border 0.3s ease; */
+}
+
+.search-input-container input[type="text"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Suggestions dropdown */
+.search-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual suggestion item */
+.suggestion-item {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestion-type {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Search button */
+.search-bar button {
+  padding: 10px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+.search-bar i.fa-search {
+  font-size: 16px;
+}
+
+
+.e-menu-wrapper ul.e-menu:not(.e-vertical),
+.e-menu-container ul.e-menu:not(.e-vertical) {
+  width: 550px;
+  padding: 0;
+  background-color: rgb(212, 232, 248);
+}
+
+
+/* ....variants css.... */
+
+.variants-container {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.variants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.e-card {
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.e-card-image img {
+  width: 100%;
+  height: auto;
+}
+
+.e-card-content {
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+/* ...............category click................. */
+
+.category-car-list,
+.variants-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.e-card {
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.e-card-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* ..........login/regirster............ */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.login-button {
+  padding: 8px 16px;
+  background-color: #225dff;
+}
+
+
+
+/* ...........model detail............ */
+
+/* Add these styles to your navbar component's CSS file */
+
+.model-details-container {
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.model-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.model-image {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+}
+
+.model-image img {
+  width: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.model-info {
+  flex: 2;
+  min-width: 300px;
+}
+
+.model-description {
+  margin: 15px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.specifications {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.price-range {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+}
+
+.price-range p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f44336;
+}
+
+button.e-primary {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button.e-primary:hover {
+  background-color: #d32f2f;
+}
+
+/* .......model-variant......... */
+
+/* General Container Styling */
+.model-container,
+.variants-container,
+.category-cars-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+/* Section Headings */
+.model-container h3,
+.variants-container h3,
+.category-cars-container h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Card Styles */
+.e-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  overflow: hidden;
+  width: 280px;
+  transition: transform 0.2s;
+}
+
+.e-card:hover {
+  transform: scale(1.03);
+}
+
+/* Image in Cards */
+.e-card-image img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Card Content */
+.e-card-content {
+  padding: 15px;
+}
+
+.e-card-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #1e88e5;
+}
+
+/* Specs Grid */
+.model-specs,
+.variant-specs {
+  margin-top: 10px;
+}
+
+.spec-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.spec-label {
+  font-weight: bold;
+  color: #555;
+}
+
+.spec-value {
+  color: #000;
+}
+
+/* Button Styling */
+.show-variants-btn,
+.back-to-model-btn {
+  margin-top: 15px;
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.show-variants-btn:hover,
+.back-to-model-btn:hover {
+  background-color: #1565c0;
+}
+
+/* Layout for Multiple Cards */
+.model-details,
+.variants-list,
+.category-cars-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Header for Variants Section */
+.variants-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}

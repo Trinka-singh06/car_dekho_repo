@@ -1,0 +1,250 @@
+<!-- <div class="search-box e-card">
+  <div class="e-card-header">
+    <h3>Find your right car</h3>
+  </div>
+
+  <div class="e-card-content">
+
+    <div class="tabs">
+      <button [class.active]="!isUsedCar" (click)="onNewCar()">New Car</button>
+      <button [class.active]="isUsedCar" (click)="onUsedCar()">Used Car</button>
+    </div>
+
+
+    <div class="search-options">
+      <label>
+        <input type="radio" name="filter" value="budget" [(ngModel)]="searchType"
+          (change)="onSearchTypeChange('budget')"> By Budget
+      </label>
+      <label>
+        <input type="radio" name="filter" value="brand" [(ngModel)]="searchType" (change)="onSearchTypeChange('brand')">
+        By Brand
+      </label>
+    </div>
+
+
+    <div *ngIf="searchType === 'budget'" class="input-fields">
+      <select [(ngModel)]="selectedBudget" (change)="onBudgetChange()">
+        <option value="">Select Budget</option>
+        <option *ngFor="let budget of budgetRanges" [value]="budget">{{ budget }}</option>
+      </select>
+
+      <select *ngIf="isUsedCar" [(ngModel)]="selectedCity">
+        <option value="">Select City</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+
+      <select *ngIf="!isUsedCar" [(ngModel)]="selectedCarType">
+        <option value="">Select Car Type</option>
+        <option *ngFor="let type of carTypes" [value]="type.name">{{ type.name }}</option>
+      </select>
+    </div>
+
+
+    <div *ngIf="searchType === 'brand'" class="input-fields">
+      <select [(ngModel)]="selectedBrand" (change)="onBrandChange()">
+        <option value="">Select Brand</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedModel">
+        <option value="">Select Model</option>
+        <option *ngFor="let model of models" [value]="model.name">{{ model.name }}</option>
+      </select>
+
+      <select *ngIf="isUsedCar" [(ngModel)]="selectedCity">
+        <option value="">Select City</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+    </div>
+  </div>
+
+
+  <div class="e-card-actions">
+    <button (click)="search()">Search</button>
+  </div>
+
+</div> -->
+
+
+
+
+<!-- <div class="search-box e-card">
+  <div class="e-card-header">
+    <h3>Find your right car</h3>
+  </div>
+
+  <div class="e-card-content">
+    <div class="tabs">
+      <button [class.active]="!isUsedCar" (click)="onNewCar()">New Car</button>
+      <button [class.active]="isUsedCar" (click)="onUsedCar()">Used Car</button>
+    </div>
+
+    <div *ngIf="isUsedCar" class="search-options">
+      <label>
+        <input type="radio" name="filter" value="budget" [(ngModel)]="searchType"
+          (change)="onSearchTypeChange('budget')"> By Budget
+      </label>
+      <label>
+        <input type="radio" name="filter" value="brand" [(ngModel)]="searchType" (change)="onSearchTypeChange('brand')">
+        By Model
+      </label>
+    </div>
+
+    <div *ngIf="isUsedCar && searchType === 'budget'" class="input-fields">
+      <select [(ngModel)]="selectedBudget" (change)="onBudgetChange()">
+        <option value="">Select Budget</option>
+        <option *ngFor="let budget of budgetRanges" [value]="budget">{{ budget }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCity" (focus)="onCitySelectFocus()" (click)="onCitySelectClicked()">
+        <option value="">Select City</option>
+        <option *ngIf="citiesLoading">Loading cities...</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="isUsedCar && searchType === 'brand'" class="input-fields">
+      <select [(ngModel)]="selectedBrand" (change)="onBrandChange()">
+        <option value="">Select Model</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCity">
+        <option value="">Select City</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="!isUsedCar" class="search-options">
+      <label>
+        <input type="radio" name="filter" value="budget" [(ngModel)]="searchType"
+          (change)="onSearchTypeChange('budget')"> By Budget
+      </label>
+      <label>
+        <input type="radio" name="filter" value="brand" [(ngModel)]="searchType" (change)="onSearchTypeChange('brand')">
+        By Brand
+      </label>
+    </div>
+
+    <div *ngIf="!isUsedCar && searchType === 'budget'" class="input-fields">
+      <select [(ngModel)]="selectedBudget" (change)="onBudgetChange()">
+        <option value="">Select Budget</option>
+        <option *ngFor="let budget of budgetRanges" [value]="budget">{{ budget }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCarType">
+        <option value="">Select Car Type</option>
+        <option *ngFor="let type of carTypes" [value]="type.name">{{ type.name }}</option>
+      </select>
+    </div>
+
+    <div *ngIf="!isUsedCar && searchType === 'brand'" class="input-fields">
+      <select [(ngModel)]="selectedBrand" (change)="onBrandChange()">
+        <option value="">Select Brand</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedModel">
+        <option value="">Select Model</option>
+        <option *ngFor="let model of models" [value]="model.name">{{ model.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="e-card-actions">
+    <button (click)="search()">Search</button>
+  </div> -->
+
+<div class="search-box e-card">
+  <div class="e-card-header">
+    <h3>Find your right car</h3>
+  </div>
+
+  <div class="e-card-content">
+    <div class="tabs">
+      <button [class.active]="!isUsedCar" (click)="onNewCar()">New Car</button>
+      <button [class.active]="isUsedCar" (click)="onUsedCar()">Used Car</button>
+    </div>
+
+    <div *ngIf="isUsedCar" class="search-options">
+      <label>
+        <input type="radio" name="filter" value="budget" [(ngModel)]="searchType"
+          (change)="onSearchTypeChange('budget')"> By Budget
+      </label>
+      <label>
+        <input type="radio" name="filter" value="brand" [(ngModel)]="searchType" (change)="onSearchTypeChange('brand')">
+        By Model
+      </label>
+    </div>
+
+    <!-- Search fields for Used Car - By Budget -->
+    <div *ngIf="isUsedCar && searchType === 'budget'" class="input-fields">
+      <select [(ngModel)]="selectedBudget" (change)="onBudgetChange()">
+        <option value="">Select Budget</option>
+        <option *ngFor="let budget of budgetRanges" [value]="budget">{{ budget }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCity" (focus)="onCitySelectFocus()" (click)="onCitySelectClicked()">
+        <option value="">Select City</option>
+        <option *ngIf="citiesLoading">Loading cities...</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+    </div>
+
+    <!-- Search fields for Used Car - By Brand -->
+    <div *ngIf="isUsedCar && searchType === 'brand'" class="input-fields">
+      <select [(ngModel)]="selectedModel">
+        <option value="">Select Model</option>
+        <option *ngFor="let model of allModels" [value]="model">{{ model }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCity" (focus)="onCitySelectFocus()" (click)="onCitySelectClicked()">
+        <option value="">Select City</option>
+        <option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</option>
+      </select>
+    </div>
+
+    <!-- New Car Options - Keep these as they were -->
+    <div *ngIf="!isUsedCar" class="search-options">
+      <label>
+        <input type="radio" name="filter" value="budget" [(ngModel)]="searchType"
+          (change)="onSearchTypeChange('budget')"> By Budget
+      </label>
+      <label>
+        <input type="radio" name="filter" value="brand" [(ngModel)]="searchType" (change)="onSearchTypeChange('brand')">
+        By Brand
+      </label>
+    </div>
+
+    <!-- Search fields for New Car - By Budget -->
+    <div *ngIf="!isUsedCar && searchType === 'budget'" class="input-fields">
+      <select [(ngModel)]="selectedBudget" (change)="onBudgetChange()">
+        <option value="">Select Budget</option>
+        <option *ngFor="let budget of budgetRanges" [value]="budget">{{ budget }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedCarType">
+        <option value="">Select Car Type</option>
+        <option *ngFor="let type of carTypes" [value]="type.name">{{ type.name }}</option>
+      </select>
+    </div>
+
+    <!-- Search fields for New Car - By Brand -->
+    <div *ngIf="!isUsedCar && searchType === 'brand'" class="input-fields">
+      <select [(ngModel)]="selectedBrand" (change)="onBrandChange()">
+        <option value="">Select Brand</option>
+        <option *ngFor="let brand of brands" [value]="brand.name">{{ brand.name }}</option>
+      </select>
+
+      <select [(ngModel)]="selectedModel">
+        <option value="">Select Model</option>
+        <option *ngFor="let model of models" [value]="model.name">{{ model.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="e-card-actions">
+    <button (click)="search()">Search</button>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { CarSellRequest, CreateCarSellRequestDto } from '../models/car_sell_request';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CarsellService {
+  private apiUrl = `http://localhost:3000/car-sell-requests`;
+
+  constructor(private http: HttpClient) { }
+
+  // Create a new sell request
+  createSellRequest(request: CreateCarSellRequestDto): Observable<CarSellRequest> {
+    return this.http.post<CarSellRequest>(this.apiUrl, request);
+  }
+
+  // Get all requests for the logged-in user
+  getUserRequests(): Observable<CarSellRequest[]> {
+    return this.http.get<CarSellRequest[]>(this.apiUrl);
+  }
+
+  // Get a specific request by ID
+  getRequestById(id: number): Observable<CarSellRequest> {
+    return this.http.get<CarSellRequest>(`${this.apiUrl}/${id}`);
+  }
+
+  // Admin endpoints
+  getAllRequests(): Observable<CarSellRequest[]> {
+    return this.http.get<CarSellRequest[]>(`${this.apiUrl}/admin/all`);
+  }
+
+  updateStatus(id: number, status: string, comments?: string): Observable<CarSellRequest> {
+    return this.http.patch<CarSellRequest>(`${this.apiUrl}/${id}/status`, { status, comments });
+  }
+
+  scheduleInspection(id: number, inspectionDate: Date): Observable<CarSellRequest> {
+    return this.http.patch<CarSellRequest>(`${this.apiUrl}/${id}/inspection`, { inspectionDate });
+  }
+
+  setValuation(id: number, valuationAmount: number): Observable<CarSellRequest> {
+    return this.http.patch<CarSellRequest>(`${this.apiUrl}/${id}/valuation`, { valuationAmount });
+  }
+
+  approveAndCreateListing(id: number, formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${id}/approve`, formData);
+  }
+}

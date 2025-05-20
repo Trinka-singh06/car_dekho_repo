@@ -1,0 +1,104 @@
+<div class="search-results-container">
+  <div class="header">
+    <h2>Search Results</h2>
+    <button class="back-button" (click)="goBack()">Back to Search</button>
+  </div>
+
+  <!-- Loading spinner -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <p>Loading results...</p>
+  </div>
+
+  <!-- Error message -->
+  <div *ngIf="error" class="error-message">
+    <p>{{ error }}</p>
+  </div>
+
+  <!-- Search results -->
+  <div class="results" *ngIf="!loading && !error && searchResults.length">
+    <div class="car-card-container">
+      <div class="car-card" *ngFor="let car of searchResults">
+        <!-- In your component template -->
+        <div class="car-image" *ngIf="car.images">
+          <img [src]="'http://localhost:3000/uploads/car-images/' + car.images" alt="{{ car.title }}">
+        </div>
+
+        <!-- Car details -->
+        <div class="car-details">
+          <h4>
+            {{ car?.variant?.model?.make?.name || car?.name }}
+            {{ car?.variant?.model?.name || '' }}
+            {{ car?.variant?.name ? '- ' + car?.variant?.name : '' }}
+          </h4>
+
+          <p class="price">
+            <strong>Price:</strong>
+            ₹
+            <ng-container *ngIf="isNumeric(car?.variant?.price || car?.price); else rawPrice">
+              {{ (car?.variant?.price || car?.price) | number:'1.0-0' }}
+            </ng-container>
+            <ng-template #rawPrice>
+              {{ car?.variant?.price || car?.price }}
+            </ng-template>
+          </p>
+
+
+          <p *ngIf="car?.city"><strong>City:</strong> {{ car?.city?.name || car?.city }}</p>
+
+          <p *ngIf="car?.variant?.model?.body_type || car?.body_type">
+            <strong>Body Type:</strong> {{ car?.variant?.model?.body_type || car?.body_type }}
+          </p>
+
+          <p *ngIf="car?.variant?.model?.fueltype || car?.fuelType">
+            <strong>Fuel Type:</strong> {{ car?.variant?.model?.fueltype || car?.fuelType }}
+          </p>
+
+          <p *ngIf="car?.variant?.model?.transmission || car?.transmission">
+            <strong>Transmission:</strong> {{ car?.variant?.model?.transmission || car?.transmission }}
+          </p>
+
+          <p *ngIf="car?.kmsDriven">
+            <strong>KMs Driven:</strong>
+            <ng-container *ngIf="isNumeric(car.kmsDriven); else rawKms">
+              {{ car.kmsDriven | number:'1.0-0' }} km
+            </ng-container>
+            <ng-template #rawKms>
+              {{ car.kmsDriven }} km
+            </ng-template>
+          </p>
+
+          <!-- View variants button (for new cars) -->
+          <button *ngIf="!filters.isUsedCar && car?.variant?.model?.variants?.length" class="view-variants-btn"
+            (click)="onViewModelVariants(car?.variant?.model)">
+            View All Variants
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No results -->
+  <div *ngIf="!loading && !error && !searchResults.length" class="no-results">
+    <p>No results found for your search criteria.</p>
+    <p>Try adjusting your filters and search again.</p>
+  </div>
+
+  <!-- Variants modal -->
+  <div class="variants-modal" *ngIf="showVariants">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>{{ selectedModelData?.name }} Variants</h3>
+        <button class="close-btn" (click)="showVariants = false">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="variant-item" *ngFor="let variant of currentModelVariants">
+          <h4>{{ variant.name }}</h4>
+          <p><strong>Price:</strong> ₹{{ variant.price | number:'1.0-0' }}</p>
+          <p *ngIf="variant.fueltype"><strong>Fuel Type:</strong> {{ variant.fueltype }}</p>
+          <p *ngIf="variant.transmission"><strong>Transmission:</strong> {{ variant.transmission }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

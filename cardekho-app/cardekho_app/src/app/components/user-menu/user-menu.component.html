@@ -1,0 +1,35 @@
+<div class="user-menu-container">
+    <div class="user-menu-trigger" (click)="toggleMenu()">
+      <span>Hello {{ user?.name || 'User' }}</span>
+      <span class="dropdown-icon">▼</span>
+    </div>
+    
+    <div class="user-menu-dropdown" *ngIf="isMenuOpen">
+      <ul class="menu-items">
+        <li (click)="navigateTo('/my-orders')">
+          <span class="menu-icon">📦</span> My Orders
+        </li>
+        <li (click)="navigateTo('/shortlisted')">
+          <span class="menu-icon">❤️</span> Shortlisted Vehicles
+        </li>
+        <li (click)="navigateTo('/activity')">
+          <span class="menu-icon">🔍</span> My Activity
+        </li>
+        <li (click)="navigateTo('/vehicles')">
+          <span class="menu-icon">🚗</span> My Vehicles
+        </li>
+        <li (click)="navigateTo('/garage')">
+          <span class="menu-icon">🏠</span> My Garage
+        </li>
+        <li (click)="navigateTo('/consents')">
+          <span class="menu-icon">⚙️</span> Manage Consents
+        </li>
+        <li (click)="navigateTo('/profile')">
+          <span class="menu-icon">⚙️</span> Profile Settings
+        </li>
+        <li (click)="logout()">
+          <span class="menu-icon">🚪</span> Logout
+        </li>
+      </ul>
+    </div>
+  </div>

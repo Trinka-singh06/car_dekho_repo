@@ -1,0 +1,61 @@
+<div class="variants-container" *ngIf="modelName">
+  <div class="variants-header">
+    <button ejs-button cssClass="e-outline back-btn" (click)="onBackToModel()">
+      <i class="fa fa-arrow-left"></i> Back to {{ modelName }}
+    </button>
+    <h2>{{ modelName }} Variants</h2>
+  </div>
+
+  <div class="variants-content">
+    <!-- Loading state -->
+    <div class="loading-container" *ngIf="loading">
+      <div class="spinner"></div>
+      <p>Loading variants...</p>
+    </div>
+
+    <!-- Error state -->
+    <div class="error-container" *ngIf="error">
+      <div class="error-message">
+        <i class="fa fa-exclamation-circle"></i>
+        <p>{{ error }}</p>
+      </div>
+      <button ejs-button cssClass="e-primary" (click)="loadVariants()">Try Again</button>
+    </div>
+
+    <!-- Variants list -->
+    <div class="variants-list" *ngIf="!loading && !error && variants.length > 0">
+      <div class="variant-item" *ngFor="let variant of variants">
+        <div class="variant-image" *ngIf="variant.image">
+          <img [src]="imageBaseUrl + variant.image" [alt]="variant.name">
+        </div>
+
+        <div class="variant-info">
+          <h3>{{ variant.name }}</h3>
+          <p class="variant-desc" *ngIf="variant.description">{{ variant.description }}</p>
+
+          <div class="variant-details" *ngIf="variant.details">
+            <div class="detail-item" *ngFor="let key of Object.keys(variant.details)">
+              <span class="detail-label">{{ key }}:</span>
+              <span class="detail-value">{{ variant.details[key] }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="variant-actions">
+          <button ejs-button cssClass="e-outline" (click)="compareVariants(variant, null)">
+            <i class="fa fa-exchange"></i> Compare
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" *ngIf="!loading && !error && variants.length === 0">
+      <div class="empty-illustration">
+        <i class="fa fa-cube fa-4x"></i>
+      </div>
+      <h3>No Variants Available</h3>
+      <p>This model doesn't have any variants yet.</p>
+    </div>
+  </div>
+</div>

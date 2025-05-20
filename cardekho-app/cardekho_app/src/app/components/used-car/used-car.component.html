@@ -1,0 +1,119 @@
+<!-- <div class="used-car-container">
+    <div class="used-car-card" *ngFor="let car of usedCars">
+            <img [src]="'http://localhost:3000/' + car.images" alt="{{ car.title }}" class="car-img" />
+      <img [src]="imageBaseUrl + car.images" alt="{{ car.title }}" class="car-img" />
+
+      <div class="car-info">
+        <h4 class="car-title">{{ car.title }}</h4>
+        <p class="car-details">
+          {{ car.kmsDriven }} kms • {{ car.fuelType }} • {{ car.transmission }}
+        </p>
+        <h3 class="car-price">₹{{ car.price }} Lakh</h3>
+        <button class="e-btn e-link view-seller" (click)="onViewSeller(car.carId)">View Seller Details <span>→</span></button>
+        <p class="car-location">{{ car.city }}</p>
+  
+    
+        <div *ngIf="visibleSellers[car.carId]" class="seller-box">
+          <p><strong>Name:</strong> {{ car.seller.name }}</p>
+          <p><strong>Mobile:</strong> {{ car.seller.mobile }}</p>
+          <p><strong>Email:</strong> {{ car.seller.email }}</p>
+          <p><strong>Address:</strong> {{ car.seller.contactAdderess }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <app-login-register *ngIf="showLoginPopup" (loginSuccess)="onLoginSuccess()" (close)="closeLogin()"></app-login-register>
+   -->
+   <div class="used-car-container">
+    <!-- Car Listings -->
+    <div class="car-listing" *ngFor="let car of usedCars" [class.expanded]="expandedCarId === car.carId" [hidden]="expandedCarId !== null && expandedCarId !== car.carId">
+      <div class="car-content-wrapper">
+        <!-- Car Details Card -->
+        <div class="card car-details-card">
+          <div class="card-content">
+            <div class="car-image-container">
+              <img 
+                [src]="imageBaseUrl + car.images" 
+                alt="{{ car.title }}" 
+                class="car-img" 
+                (click)="onViewCarDetails(car.carId)" 
+              />
+            </div>
+            <div class="car-info">
+              <h2 class="car-title">{{ car.title }}</h2>
+              <div class="car-specs">
+                <span>{{ car.kmsDriven }} kms</span> • 
+                <span>{{ car.fuelType }}</span> • 
+                <span>{{ car.transmission }}</span>
+              </div>
+              <div class="car-price">₹{{ car.price }} Lakh</div>
+              <button class="view-button" (click)="onViewSeller(car.carId)">
+                View Seller Details <span class="arrow">→</span>
+              </button>
+              <div class="car-location">{{ car.city }}</div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Car Full Details (without requiring login) -->
+        <div *ngIf="selectedCarId === car.carId" class="card full-car-detail-card">
+          <div class="card-content">
+            <h3 class="details-title">Car Details</h3>
+            <div class="details-grid">
+              <div><strong>Fuel Type:</strong> {{ car.fuelType }}</div>
+              <div><strong>Kms Driven:</strong> {{ car.kmsDriven }}</div>
+              <div><strong>Transmission:</strong> {{ car.transmission }}</div>
+              <div><strong>Price:</strong> ₹{{ car.price }} Lakh</div>
+              <div><strong>Registration Year:</strong> {{ car.registrationYear }}</div>
+              <div><strong>Insurance:</strong> {{ car.insurance }}</div>
+              <div><strong>Owner:</strong> {{ car.owner }}</div>
+              <div><strong>Engine:</strong> {{ car.engine }}</div>
+              <div><strong>Seats:</strong> {{ car.seats }}</div>
+              <div><strong>RTO:</strong> {{ car.rto }}</div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Seller Details Card -->
+        <div *ngIf="visibleSellers[car.carId]" class="card seller-details-card">
+          <div class="card-content">
+            <div class="seller-info">
+              <h2 class="seller-header">Seller Contact Details</h2>
+              <div class="seller-details">
+                <div class="seller-detail-item">
+                  <strong>Name:</strong> {{ car.seller?.name || 'Not provided' }}
+                </div>
+                <div class="seller-detail-item">
+                  <strong>Mobile:</strong> {{ car.seller?.mobile || 'Not provided' }}
+                </div>
+                <div class="seller-detail-item">
+                  <strong>Email:</strong> {{ car.seller?.email || 'Not provided' }}
+                </div>
+                <div class="seller-detail-item">
+                  <strong>Address:</strong> {{ car.seller?.contactAdderess || 'Not provided' }}
+                </div>
+              </div>
+              <div class="seller-actions">
+                <button class="contact-button">
+                  <i class="whatsapp-icon"></i> Whatsapp
+                </button>
+              </div>
+              <div class="back-button-container">
+                <button class="back-button" (click)="closeExpandedView()">
+                  Back to all cars
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Login Modal -->
+<app-login-register 
+  *ngIf="showLoginPopup" 
+  (loginSuccess)="onLoginSuccess()" 
+  (close)="closeLogin()">
+</app-login-register>

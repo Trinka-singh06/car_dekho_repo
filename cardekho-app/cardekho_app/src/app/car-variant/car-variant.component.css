@@ -1,0 +1,32 @@
+.variants-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.variants-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.e-card {
+  width: 250px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+}
+
+.e-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.e-card h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
