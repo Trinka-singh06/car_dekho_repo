@@ -26,4 +26,5 @@ export class Car {
   @ManyToOne(() => City, { nullable: true })
   @JoinColumn()
   city: City;
+  
 }
