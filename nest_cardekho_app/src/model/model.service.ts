@@ -7,6 +7,7 @@ import { Between, Like, Raw, Repository } from 'typeorm';
 import { Make } from 'src/make/entities/make.entity';
 import path from 'path';
 import * as fs from 'fs';
+import { applyPagination } from 'src/common/query-builder.util';
 
 @Injectable()
 export class ModelService {
@@ -14,7 +15,13 @@ export class ModelService {
     @InjectRepository(Make) private makeRepository: Repository<Make>,
   ) { }
 
-
+ async getPaginatedUsers(query: any) {
+ const qb = this.makeRepository.createQueryBuilder('user');
+ applyPagination(qb, query);
+ 
+ const [data, total] = await qb.getManyAndCount();
+ return { data, total };
+ }
   async findByMakeAndModel(makeId: number, modelName: string) {
     return this.modelRepository.find({
       where: {

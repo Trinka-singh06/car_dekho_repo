@@ -11,6 +11,11 @@ import path, { extname, join } from 'path';
 export class ModelController {
   constructor(private readonly modelService: ModelService) {}
 
+ @Get()
+ async getUsers(@Query() query: any) {
+ return this.modelService.getPaginatedUsers(query);
+}
+
   @Get('filter')
   filterNewCars(
     @Query('minPrice') minPrice: string,
