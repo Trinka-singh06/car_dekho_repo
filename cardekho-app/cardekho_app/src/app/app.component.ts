@@ -4,7 +4,6 @@ import { AccordionModule, ToolbarModule, ContextMenuModule, BreadcrumbModule, Ca
 import { TextBoxModule, TextAreaModule, NumericTextBoxModule, MaskedTextBoxModule, SliderModule, UploaderModule, ColorPickerModule, SignatureModule, RatingModule, OtpInputModule, SmartTextAreaModule, SpeechToTextModule } from '@syncfusion/ej2-angular-inputs';
 import { DropDownListModule, ComboBoxModule, AutoCompleteModule, MultiSelectModule, ListBoxModule, DropDownTreeModule, MentionModule } from '@syncfusion/ej2-angular-dropdowns';
 import { ButtonModule, CheckBoxModule, RadioButtonModule, SwitchModule, ChipListModule, FabModule, SpeedDialModule, SmartPasteButtonModule } from '@syncfusion/ej2-angular-buttons';
-
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -21,15 +20,16 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { authInterceptor } from './auth.interceptor';
 import { jwtAuthGuard } from './jwt-auth.guard';
 import { authGuard } from './auth.guard';
+import { GridComponentComponent } from "./components/grid-component/grid-component.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [GridModule, PagerModule, RouterModule,DropDownButtonModule, RouterOutlet, AccordionModule, ToolbarModule, ContextMenuModule, BreadcrumbModule, CarouselModule, TabModule, TreeViewModule, SidebarModule, MenuModule, AppBarModule, StepperModule, TextBoxModule, TextAreaModule, NumericTextBoxModule, MaskedTextBoxModule, SliderModule, UploaderModule, ColorPickerModule, SignatureModule, RatingModule, OtpInputModule, SmartTextAreaModule, SpeechToTextModule, DropDownListModule, ComboBoxModule, AutoCompleteModule, MultiSelectModule, ListBoxModule, DropDownTreeModule, MentionModule, ButtonModule, CheckBoxModule, RadioButtonModule, SwitchModule, ChipListModule, FabModule, SpeedDialModule, SmartPasteButtonModule, CommonModule, RouterOutlet, NavbarComponent,
+  imports: [GridModule, PagerModule, RouterModule, DropDownButtonModule, RouterOutlet, AccordionModule, ToolbarModule, ContextMenuModule, BreadcrumbModule, CarouselModule, TabModule, TreeViewModule, SidebarModule, MenuModule, AppBarModule, StepperModule, TextBoxModule, TextAreaModule, NumericTextBoxModule, MaskedTextBoxModule, SliderModule, UploaderModule, ColorPickerModule, SignatureModule, RatingModule, OtpInputModule, SmartTextAreaModule, SpeechToTextModule, DropDownListModule, ComboBoxModule, AutoCompleteModule, MultiSelectModule, ListBoxModule, DropDownTreeModule, MentionModule, ButtonModule, CheckBoxModule, RadioButtonModule, SwitchModule, ChipListModule, FabModule, SpeedDialModule, SmartPasteButtonModule, CommonModule, RouterOutlet, NavbarComponent,
     SearchFormComponent,
     CarSliderComponent,
-      HomeComponent, SearchResultComponent, CategoryCardComponent, UsedCarComponent],
+    HomeComponent, SearchResultComponent, CategoryCardComponent, UsedCarComponent, GridComponentComponent],
    providers: [
       AuthService,
     ],

@@ -15,8 +15,10 @@ export class ModelService {
     @InjectRepository(Make) private makeRepository: Repository<Make>,
   ) { }
 
+
+  
  async getPaginatedUsers(query: any) {
- const qb = this.makeRepository.createQueryBuilder('user');
+ const qb = this.modelRepository.createQueryBuilder('user');
  applyPagination(qb, query);
  
  const [data, total] = await qb.getManyAndCount();

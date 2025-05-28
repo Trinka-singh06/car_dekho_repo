@@ -3,14 +3,17 @@
 <!-- <app-navbar></app-navbar> -->
 <!-- app.component.html -->
 
+
+<app-grid-component></app-grid-component>
+<!-- 
 <app-navbar (selectionChanged)="onSelectionChanged($event)"></app-navbar>
 
-<!-- Only show home when nothing is selected -->
+
 <app-home *ngIf="showHome"></app-home>
 <router-outlet ></router-outlet>
 
 
-  <!-- Integrate the car explorer component -->
+ 
   <app-category-card 
 
     [visible]="showExplorer" 
@@ -18,4 +21,4 @@
   </app-category-card>
 
   <app-used-car *ngIf="usedCarList.length" [usedCars]="usedCarList"></app-used-car>
- 
+  -->

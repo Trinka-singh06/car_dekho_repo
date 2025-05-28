@@ -1,1 +1,22 @@
-<p>grid-component works!</p>
+<ejs-grid #grid [dataSource]="data" [allowPaging]="true" [pageSettings]="pageSettings" (dataBound)="onDataBound()"
+  (actionBegin)="onActionBegin($event)" [allowSorting]="true" [allowFiltering]="true" [allowGrouping]="true">
+  <e-columns>
+    <e-column field='modelId' headerText='Model ID' width=100></e-column>
+    <e-column field='name' headerText='Name' width=200></e-column>
+    <e-column field='price' headerText='Price' width=250></e-column>
+    <e-column field='engine' headerText='Engine' width=250></e-column>
+    <e-column field='power' headerText='Power' width=250></e-column>
+    <e-column field='transmission' headerText='Transmission' width=100></e-column>
+    <e-column field='torgue' headerText='Torgue' width=100></e-column>
+    <e-column field='body_type' headerText='Body Type' width=100></e-column>
+    <e-column field='seating_capacity' headerText='Seating Capacity' width=100></e-column>
+    <e-column field='mileage' headerText='Mileage' width=250></e-column>
+    <e-column field='fueltype' headerText='Fuel Type' width=250></e-column>
+  </e-columns>
+</ejs-grid>
+
+<!-- Status Display -->
+<div style="margin-top: 10px; padding: 10px; background: #f8f9fa;">
+  Page: {{ currentPage }} | Size: {{ pageSize }} | Total: {{ total }} |
+  Showing: {{ data.length }} records
+</div>
